@@ -8,6 +8,9 @@ const {authenticate} = require("./middlewares/authenticate")
 const {userRoute} = require("./routes/userRoutes")
 const {userRoute2} = require("./routes/userRoutes2")
 const {adminRoute} = require("./routes/adminRoute")
+
+ require("dotenv").config()
+
 app.use(express.json())
 app.use(cors())
 app.use("/user" ,userRoute)
@@ -17,7 +20,7 @@ app.use("/user2",userRoute2)
 
 
 
-app.listen(7300, async ()=>{
+app.listen(process.env.port, async ()=>{
 
     try{
         await connection
