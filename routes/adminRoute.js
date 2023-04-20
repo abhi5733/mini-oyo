@@ -115,15 +115,16 @@ const jwt = require("jsonwebtoken")
     adminRoute.get("/" , async (req,res)=>{
 
         let query = req.query
+        let page = req.query.page
 
     try{
  let rooms
         if(query.category){
             
-            rooms = await  hotelModel.find({category:query.category}).limit(5)
+            rooms = await  hotelModel.find({category:query.category}).limit(5).skip(page)
              
         }else{
-             rooms = await hotelModel.find().limit(5)
+             rooms = await hotelModel.find().limit(5).skip(page)
          }
   
      res.send(rooms)
