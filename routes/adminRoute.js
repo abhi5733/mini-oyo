@@ -121,10 +121,10 @@ const jwt = require("jsonwebtoken")
  let rooms
         if(query.category){
             
-            rooms = await  hotelModel.find({category:query.category}).limit(5).skip(page)
+            rooms = await  hotelModel.find({category:query.category}).limit(10).skip(page)
              
         }else{
-             rooms = await hotelModel.find().limit(5).skip(page)
+             rooms = await hotelModel.find().limit(10).skip(page)
          }
   
      res.send(rooms)
