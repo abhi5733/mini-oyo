@@ -123,7 +123,7 @@ const jwt = require("jsonwebtoken")
             rooms = await  hotelModel.find({category:query.category}).limit(5)
              
         }else{
-             rooms = await hotelModel.find()
+             rooms = await hotelModel.find().limit(5)
          }
   
      res.send(rooms)
@@ -179,3 +179,4 @@ const jwt = require("jsonwebtoken")
  
  module.exports = {adminRoute}
  
+
