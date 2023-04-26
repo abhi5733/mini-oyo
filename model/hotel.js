@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
     no_of_persons:String,
     capacity:String ,
     cost:String,
-    booked:Boolean
+    booked:Boolean,
+    location:String
    
 
 })
