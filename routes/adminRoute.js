@@ -116,14 +116,17 @@ const jwt = require("jsonwebtoken")
 
         let query = req.query
         let page = req.query.page
-
+       let location = req.query.location
     try{
  let rooms
         if(query.category){
             
             rooms = await  hotelModel.find({category:query.category}).limit(10).skip(page)
              
-        }else{
+        }else if(query.location){
+            rooms = await hotelModel.find({location}).skip(page)
+        }
+        else{
              rooms = await hotelModel.find().limit(10).skip(page)
          }
   
