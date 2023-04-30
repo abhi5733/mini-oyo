@@ -57,6 +57,7 @@ res.send(rooms)
 
 }catch(err){
     res.semd(err)
+
 }
 
 })

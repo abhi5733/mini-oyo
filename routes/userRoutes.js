@@ -45,7 +45,7 @@ catch(err){
 //   logging in  the user 
 
 
-userRoute.post("/login" , async (req,res)=>{
+userRoute.post("/login" , async (req,res)=> {
 
    let {email,pass} = req.body
 
@@ -59,7 +59,7 @@ userRoute.post("/login" , async (req,res)=>{
                if(result){
                    const token = jwt.sign({ userID: user[0]._id  }, 'masai');
                    
-            res.send({"msg":"Login successfull","token":token})
+            res.send({"msg":"Login successfull","token":token,user})
                }else{
                    res.send({"msg":"login failed"})
                }
@@ -77,9 +77,6 @@ userRoute.post("/login" , async (req,res)=>{
 
  res.send({"err":"user not logged in","err":err.message})
 }
-
- 
-
    })
 
 
