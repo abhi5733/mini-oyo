@@ -117,7 +117,7 @@ const jwt = require("jsonwebtoken")
         let query = req.query
         let page = req.query.page
        let location = req.query.location
-       console.log(location)
+      
     try{
  let rooms
         if(query.category){
@@ -131,7 +131,7 @@ const jwt = require("jsonwebtoken")
              rooms = await hotelModel.find().limit(10).skip(page)
          }
   
-     res.send(rooms)
+     res.send(rooms,location)
  
  
     }catch(err){
