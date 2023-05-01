@@ -131,7 +131,7 @@ const jwt = require("jsonwebtoken")
              rooms = await hotelModel.find().limit(10).skip(page)
          }
   
-     res.send(rooms,location)
+     res.send(rooms)
  
  
     }catch(err){
