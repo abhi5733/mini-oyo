@@ -116,28 +116,29 @@ const jwt = require("jsonwebtoken")
 
         let query = req.query
         let page = req.query.page
+        let category = req.query.category
        let location = req.query.location
       let type = req.query.type
 
     try{
  let rooms
- if(query.category && query.location && type){
-    rooms = await  hotelModel.find({category:query.category,location,type_of_room:type}).limit(10).skip(page)
+ if(category && location && type){
+    rooms = await  hotelModel.find({category,location,type_of_room:type}).limit(10).skip(page)
  }
- else if(query.category && query.location ){
-    rooms = await  hotelModel.find({category:query.category,location}).limit(10).skip(page)
- }else if(query.category && type){
+ else if(category && location ){
+    rooms = await  hotelModel.find({category,location}).limit(10).skip(page)
+ }else if(category && type){
             
-            rooms = await  hotelModel.find({category:query.category,type_of_room:type}).limit(10).skip(page)
+            rooms = await  hotelModel.find({category,type_of_room:type}).limit(10).skip(page)
              
-    }else if(query.location && type){
+    }else if(location && type){
             rooms = await hotelModel.find({location,type_of_room:type}).limit(10).skip(page)
     }else if(query.location){
         rooms = await  hotelModel.find({location}).limit(10).skip(page)
     }else if(type){
         rooms = await  hotelModel.find({type_of_room:type }).limit(10).skip(page)
-    }else if(query.category){
-        rooms = await  hotelModel.find({category:query.category}).limit(10).skip(page)
+    }else if(category){
+        rooms = await  hotelModel.find({category}).limit(10).skip(page)
     }else{
              rooms = await hotelModel.find().limit(10).skip(page)
          }
