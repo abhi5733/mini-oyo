@@ -123,7 +123,7 @@ const jwt = require("jsonwebtoken")
     try{
  let rooms
 //  if(category.length>0 && location && type.length>0 ){
-//     rooms = await  hotelModel.find({category,location,type_of_room:type}).limit(10).skip(page)
+    rooms = await  hotelModel.find({category,location,type_of_room:type}).limit(10).skip(page)
 //  }
 //  else if(category.length>0  && location ){
 //     rooms = await  hotelModel.find({category,location}).limit(10).skip(page)
@@ -143,8 +143,8 @@ const jwt = require("jsonwebtoken")
 //              rooms = await hotelModel.find().limit(10).skip(page)
 //          }
   
-//      res.send(rooms)
-res.send(location,category,type)
+     res.send(rooms)
+// res.send(location,category,type)
  
  
     }catch(err){
