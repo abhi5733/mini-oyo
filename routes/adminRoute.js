@@ -116,9 +116,9 @@ const jwt = require("jsonwebtoken")
 
         let query = req.query
         let page = req.query.page
-        let category = req.query.category
-       let location = req.query.location
-      let type = req.query.type
+        let category = req.query.category || []
+       let location = req.query.location || ""
+      let type = req.query.type || []
 
     try{
  let rooms
