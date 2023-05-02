@@ -122,28 +122,29 @@ const jwt = require("jsonwebtoken")
 
     try{
  let rooms
- if(category.length>0 && location && type.length>0 ){
-    rooms = await  hotelModel.find({category,location,type_of_room:type}).limit(10).skip(page)
- }
- else if(category.length>0  && location ){
-    rooms = await  hotelModel.find({category,location}).limit(10).skip(page)
- }else if(category.length>0  && type.length>0 ){
+//  if(category.length>0 && location && type.length>0 ){
+//     rooms = await  hotelModel.find({category,location,type_of_room:type}).limit(10).skip(page)
+//  }
+//  else if(category.length>0  && location ){
+//     rooms = await  hotelModel.find({category,location}).limit(10).skip(page)
+//  }else if(category.length>0  && type.length>0 ){
             
-            rooms = await  hotelModel.find({category,type_of_room:type}).limit(10).skip(page)
+//             rooms = await  hotelModel.find({category,type_of_room:type}).limit(10).skip(page)
              
-    }else if(location && type.length>0 ){
-            rooms = await hotelModel.find({location,type_of_room:type}).limit(10).skip(page)
-    }else if(location.length>0 ){
-        rooms = await  hotelModel.find({location}).limit(10).skip(page)
-    }else if(type.length>0 ){
-        rooms = await  hotelModel.find({type_of_room:type }).limit(10).skip(page)
-    }else if(category.length>0 ){
-        rooms = await  hotelModel.find({category:query.category}).limit(10).skip(page)
-    }else{
-             rooms = await hotelModel.find().limit(10).skip(page)
-         }
+//     }else if(location && type.length>0 ){
+//             rooms = await hotelModel.find({location,type_of_room:type}).limit(10).skip(page)
+//     }else if(location.length>0 ){
+//         rooms = await  hotelModel.find({location}).limit(10).skip(page)
+//     }else if(type.length>0 ){
+//         rooms = await  hotelModel.find({type_of_room:type }).limit(10).skip(page)
+//     }else if(category.length>0 ){
+//         rooms = await  hotelModel.find({category:query.category}).limit(10).skip(page)
+//     }else{
+//              rooms = await hotelModel.find().limit(10).skip(page)
+//          }
   
-     res.send(rooms)
+//      res.send(rooms)
+res.send(location,category,type)
  
  
     }catch(err){
